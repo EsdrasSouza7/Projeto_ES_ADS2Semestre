@@ -1,29 +1,47 @@
-from passageiro import Passageiros
-from motorista import Motorista
+from login import LoginMotor, LoginPassa
 
 class funcoes:
     def __init__(self):
-        self.passageiros = []
-        self.motoristas = []
+        self.loginPassageiros = []
+        self.loginMotoristas = []
 
-    #O cliente vai se cadastrar sem escolher o carro? sim ou nao?
-    def cadastrar_passageiros(self,passageiros: Passageiros):
-        self.passageiros.append(passageiros)
+    #O cliente vai se cadastrar sem escolher o carro? sim. Deverá selecionar os Horarios disponiveis.
+    #Notificar o cliente com antecedencia sobre o horario marcado.
+    def cadastrar_passageiros(self,passageiros: LoginPassa):
+        self.loginPassageiros.append(passageiros)
 
-    def cadastrar_motorista(self,motor: Motorista):
-        self.motoristas.append(motor)
+    def cadastrar_motorista(self,motor: LoginMotor):
+        self.loginMotoristas.append(motor)
 
     def print_passageiros(self):
         i = 1
-        for passageiros in self.passageiros:
-            print("Nº" + str(i) + " | Nome:" + passageiros.Nome + " | Destino:" + passageiros.local + " | Telefone:" + str(passageiros.telefone))
+        for passageiros in self.loginPassageiros:
+            passa = passageiros.get_passageiro()
+            print("Nº" + str(i) + " | Nome:" + passa.Nome + " | Destino:" + passa.local + " | Telefone:" + str(passa.telefone))
             i+=1
 
     def print_motorista(self):
         i = 1
-        for motor in self.motoristas:
+        for motorista in self.loginMotoristas:
+            motor = motorista.get_motorista()
             print("Nº" + str(i) + " | Nome:" + motor.Nome + " | Carro:" + motor.carro + " | Rota:" + motor.destinoIni + "-" + motor.destinoFin)
             i+=1
 
-    #Linha 9 - Se sim Notificar o paciente quando o carro for selecionado para ela
-    #Talvez fazer um selecionador automatico usando o distino do paciente e o desrino final do motorista
+    def loggando(self, nickname, senha, passaMotor):
+        if passaMotor == 1:
+            for passa in self.loginPassageiros:
+                test = passa.verificacao(nickname, senha)
+                if test != None:
+                    return test
+            print("Login ou Senha Errada")
+            return None
+        elif passaMotor == 2:
+            for motor in self.loginMotoristas:
+                test = motor.verificacao(nickname, senha)
+                if test != None:
+                    return test
+            print("Login ou Senha Errada")
+            return None
+        else:
+            print("Erro: opção desconhecida")
+            return None
