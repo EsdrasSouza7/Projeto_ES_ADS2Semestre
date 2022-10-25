@@ -6,7 +6,7 @@ class funcoes:
         self.loginMotoristas = []
 
     #O cliente vai se cadastrar sem escolher o carro? sim. Deverá selecionar os Horarios disponiveis.
-    #Notificar o cliente com antecedencia sobre o horario marcado.
+    #Notificar o cliente com antecedencia sobre o horario marcado..
     def cadastrar_passageiros(self,passageiros: LoginPassa):
         self.loginPassageiros.append(passageiros)
 

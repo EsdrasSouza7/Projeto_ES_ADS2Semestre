@@ -33,7 +33,7 @@ print(fun.loggando("seee", "12345", 1)) #Erro no Nickname/e-mail
 
 
 
-#while True:
+#while True::
  #   print("O que Gostaria de fazer?")
   #  print("1 - Login  2 - cadastro")
    # input(int("R: "))

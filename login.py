@@ -1,6 +1,6 @@
 from passageiro import Passageiros
 from motorista import Motorista
-
+#
 class LoginPassa:
     def __init__(self, nickname, senha, passageiro: Passageiros):
         self.nick = nickname

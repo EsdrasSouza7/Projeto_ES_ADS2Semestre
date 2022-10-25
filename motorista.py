@@ -4,7 +4,7 @@ class Motorista:
         self.carro = carro
         self.destinoIni = distIni
         self.destinoFin = distFin
-
+#
     def set_distinoFinal(self, distFin):
         self.destinoFin = distFin
 
